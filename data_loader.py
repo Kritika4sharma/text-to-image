@@ -54,9 +54,9 @@ if dataset == '102flowers':
     ## store all captions ids in list
     captions_ids = []
     try: # python3
-        tmp = captions_dict.items()
+        tmp = sorted(captions_dict.items())
     except: # python3
-        tmp = captions_dict.iteritems()
+        tmp = sorted(captions_dict.iterkeys())
     for key, value in tmp:
         for v in value:
             captions_ids.append( [vocab.word_to_id(word) for word in nltk.tokenize.word_tokenize(v)] + [vocab.end_id])  # add END_ID
